@@ -19,7 +19,7 @@ export const authenticateWithLdap = async (
   }
 
   const client = new Client({
-    url: process.env.LDAP_URL as string,
+    url: `${process.env.LDAP_URL}`,
     timeout: 5000,
     connectTimeout: 5000,
   });
