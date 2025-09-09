@@ -1,14 +1,10 @@
-import { Sequelize } from 'sequelize';
+const { Sequelize } = require('sequelize');
+require('dotenv').config()
 
-// Example connection to PostgreSQL; adjust for your DB and credentials.
-const sequelize = new Sequelize(process.env.PG_DB, process.env.PG_DB_USER, process.env.PG_DB_PASSWORD, {
+
+export const sequelize = new Sequelize(process.env.PG_DB, process.env.PG_DB_USER, process.env.PG_DB_PASSWORD, {
   host: process.env.PG_DB_HOST,
-  dialect: 'postgres' // or 'mysql', 'sqlite', 'mariadb', 'mssql'
+  dialect: 'postgres'
 });
 
-try {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-}
+
